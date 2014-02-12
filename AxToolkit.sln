@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dfft", "dfft\dfft.vcproj", "{35E6E303-E84D-AF48-9C98-5D5039DF34FD}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fps", "fps\fps.vcproj", "{86BE7DF1-ABC6-DC49-9AA4-8F26280FE96B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sandbox", "sandbox\sandbox.vcproj", "{D61626A2-B28B-1940-9639-3C18AD90F78B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RSquareDiamond", "SquareDiamond\RSquareDiamond.vcproj", "{C12565C9-C2DF-7E43-848B-8E65993C16AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35E6E303-E84D-AF48-9C98-5D5039DF34FD}.Debug|Win32.ActiveCfg = Debug|Win32
+		{35E6E303-E84D-AF48-9C98-5D5039DF34FD}.Debug|Win32.Build.0 = Debug|Win32
+		{86BE7DF1-ABC6-DC49-9AA4-8F26280FE96B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{86BE7DF1-ABC6-DC49-9AA4-8F26280FE96B}.Debug|Win32.Build.0 = Debug|Win32
+		{D61626A2-B28B-1940-9639-3C18AD90F78B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D61626A2-B28B-1940-9639-3C18AD90F78B}.Debug|Win32.Build.0 = Debug|Win32
+		{C12565C9-C2DF-7E43-848B-8E65993C16AB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C12565C9-C2DF-7E43-848B-8E65993C16AB}.Debug|Win32.Build.0 = Debug|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
