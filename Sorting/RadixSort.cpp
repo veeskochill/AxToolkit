@@ -17,8 +17,16 @@ string* RadixSort(string* input, int size, int k = -1)
 		for(int ia =0; ia < size; ia++)
 		{
 			string temp = input[ia];
-			bins[temp.at(ak)].push(temp);
-			cout << temp.at(ak) << " " << bins[temp.at(ak)].back() << endl;
+			if(temp.size() > ak)
+			{
+				bins[temp.at(ak)].push(temp);
+				cout << temp.at(ak) << " " << bins[temp.at(ak)].back() << endl;
+			}
+			else
+			{
+				bins['a'].push(temp);
+				cout << 'a' <<  " " << bins['a'].back() << endl;
+			}
 		}
 		int count =0;
 		cout << endl;
@@ -127,7 +135,7 @@ queue<int> RadixSort(queue<int> input, int size, int k = -1)
 int main()
 {
 
-	string inputstring[5] = {"spin", "golf", "road", "rick", "spit"};
+	string inputstring[] = {"spin", "golf", "go", "road", "rick", "spy", "spit"};
 	int input[10] = {36, 9, 0, 25, 1 ,49, 64, 16, 81, 4};
 	/*queue<int> input2;
 	for(int ui=0;ui<10;ui++)
@@ -142,8 +150,8 @@ int main()
 		output.pop();
 	}
 */
-	string* output = RadixSort(inputstring, 5, 4);
-	for( int ui=0; ui < 5; ui++)
+	string* output = RadixSort(inputstring, 7, 4);
+	for( int ui=0; ui < 7; ui++)
 	{
 		cout << inputstring[ui] << endl;
 	}
