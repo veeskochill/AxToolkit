@@ -4,9 +4,38 @@
 #include <array>
 #include <cmath>
 
+#include <cstring>
+#include <map>
+
 
 using namespace std;
-
+string* RadixSort(string* input, int size, int k = -1)
+{
+	for(int ak=k-1; ak >=0; ak--)
+	{
+		map<char, queue<string>> bins;
+		for(int ia =0; ia < size; ia++)
+		{
+			string temp = input[ia];
+			bins[temp.at(ak)].push(temp);
+			cout << temp.at(ak) << " " << bins[temp.at(ak)].back() << endl;
+		}
+		int count =0;
+		cout << endl;
+		for(map<char, queue<string>>::iterator ui=bins.begin(); ui!=bins.end(); ui++)
+		{
+			cout << ui->first << ": ";
+			while(ui->second.size())
+			{
+				input[count++] = ui->second.front();
+				cout << ui->second.front() << " ";
+				ui->second.pop();
+			}
+			cout << endl;
+		}
+		cout << endl;
+	}
+}
 
 int* RadixSort(int* input, int size, int k = -1)
 {
@@ -25,16 +54,25 @@ int* RadixSort(int* input, int size, int k = -1)
 		}
 
 		//re-create 'input' from bins (Copy)
+		cout << endl;
+
 		int count = 0;
 		for(int ui =0; ui<10; ui++) 
 		{
+			if(bins[ui].size())
+			{
+				cout << endl;
+				cout << ui << ":";
+			}
 			for(int uj = bins[ui].size();uj>0;uj--) //O(n)
 			{	
-				input[count++] = bins[ui].front();
+				input[count] = bins[ui].front();
+				cout << input[count] << " ";
 				bins[ui].pop();
-
+				count++;
 			}
-		}	
+		}
+		cout << endl;
 	}
 	return input;
 }
@@ -89,6 +127,7 @@ queue<int> RadixSort(queue<int> input, int size, int k = -1)
 int main()
 {
 
+	string inputstring[5] = {"spin", "golf", "road", "rick", "spit"};
 	int input[10] = {36, 9, 0, 25, 1 ,49, 64, 16, 81, 4};
 	/*queue<int> input2;
 	for(int ui=0;ui<10;ui++)
@@ -103,10 +142,11 @@ int main()
 		output.pop();
 	}
 */
-	int * output = RadixSort(input, 10, 2);
-	for( int ui=0; ui < 10; ui++)
+	string* output = RadixSort(inputstring, 5, 4);
+	for( int ui=0; ui < 5; ui++)
 	{
-		cout << output[ui] << endl;
+		cout << inputstring[ui] << endl;
 	}
+	
 	return 0;
 }
