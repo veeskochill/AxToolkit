@@ -1,24 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>   
-
-//interface for a stack
-/*
-Push to top
-Pop from top
-*/
-
-class AxStack
-{
-public:
-	AxStack();
-	~AxStack();
-	void Push(int element);
-	int Pop();
-
-private:
-	int* data;
-	int size;
-};
+#include "AxStack.h"
 
 AxStack::AxStack()
 {
@@ -46,23 +26,4 @@ int AxStack::Pop()
 	size--;
 	data = (int*)realloc(data, size*sizeof(int));
 	return temp;
-}
-
-int main(){
-	
-	AxStack* myStack = new AxStack();
-	
-	for(int ui = 0; ui<10; ui++)
-	{
-		myStack->Push(ui);
-	}
-	
-	for(int ui = 0; ui<10; ui++)
-	{
-		printf("%d\n", myStack->Pop());
-	}
-	
-	delete myStack;
-	
-	return 0;
 }
