@@ -1,4 +1,5 @@
 #include "AxStack.h"
+#include <stdlib.h>   
 
 AxStack::AxStack()
 {
