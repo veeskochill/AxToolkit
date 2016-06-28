@@ -1,30 +1,39 @@
 #include "AxStack.h"
 #include <stdlib.h>   
 
-AxStack::AxStack()
+
+template<class T>
+AxStack<T>::AxStack(): data(NULL), size(0)
 {
-	data = NULL;
-	size = 0;
+
 }
 
-AxStack::~AxStack()
+template<class T>
+AxStack<T>::~AxStack()
 {
 	if(data)
+	{
 		free(data);
+	}
 	size = 0;
 }
 
-void AxStack::Push(int element)
+template<class T>
+void AxStack<T>::Push(T element)
 {
 	size++;
-	data = (int*)realloc(data, size*sizeof(int));
+	data = (T*)realloc(data, size*sizeof(T));
 	data[size] = element;
 }
 
-int AxStack::Pop()
+template<class T>
+T AxStack<T>::Pop()
 {
-	int temp = data[size];
+	T temp = data[size];
 	size--;
-	data = (int*)realloc(data, size*sizeof(int));
+	data = (T*)realloc(data, size*sizeof(T));
 	return temp;
 }
+
+
+template class AxStack<int>;

@@ -3,19 +3,19 @@
 
 int main(){
 	
-	AxStack* myStack = new AxStack();
+	AxStack<int> myStack;// = new AxStack<int>();
 	
 	for(int ui = 0; ui<10; ui++)
 	{
-		myStack->Push(ui);
+		myStack.Push(ui);
 	}
 	
 	for(int ui = 0; ui<10; ui++)
 	{
-		printf("%d\n", myStack->Pop());
+		printf("%d\n", myStack.Pop());
 	}
 	
-	delete myStack;
+	//delete myStack;
 	
 	return 0;
 }

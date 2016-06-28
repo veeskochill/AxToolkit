@@ -6,15 +6,16 @@ Push to top
 Pop from top
 */
 
+template<class T>
 class AxStack
 {
 public:
-	AxStack();
+	AxStack<T>();
 	~AxStack();
-	void Push(int element);
-	int Pop();
+	void Push(T element);
+	T Pop();
 
 private:
-	int* data;
-	int size;
+	T* data;
+	T size;
 };
