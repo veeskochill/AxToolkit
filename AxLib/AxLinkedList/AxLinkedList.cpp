@@ -3,7 +3,7 @@
 
 
 template<class T>
-AxLinkedList<T>::AxLinkedList(T element): data(element), forward(NULL)
+AxLinkedList<T>::AxLinkedList(T element, AxLinkedList<T> next): data(element), forward(next)
 {
 
 }
@@ -12,6 +12,31 @@ template<class T>
 AxLinkedList<T>::~AxLinkedList()
 {
 }
+
+template<class T>
+T AxLinkedList<T>::Get()
+{
+	return data;
+}
+
+template<class T>
+void SetNext(AxLinkedList<T>* next)
+{
+	forward = next;
+}
+
+template<class T>
+AxLinkedList<T>* AxLinkedList<T>::GetNext()
+{
+	return forward;
+}
+
+template class AxLinkedList<int>;
+
+
+
+
+/****** No longer needed *****/
 
 //Create a new node. If there is a node ahead, insert between.
 template<class T>
@@ -47,16 +72,5 @@ void AxLinkedList<T>::Remove()
 	}
 }
 
-template<class T>
-T AxLinkedList<T>::Get()
-{
-	return data;
-}
 
-template<class T>
-AxLinkedList<T>* AxLinkedList<T>::Next()
-{
-	return forward;
-}
 
-template class AxLinkedList<int>;

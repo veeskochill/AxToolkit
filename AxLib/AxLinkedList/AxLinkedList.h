@@ -10,13 +10,12 @@ template<class T>
 class AxLinkedList
 {
 public:
-	AxLinkedList<T>(T);
+	AxLinkedList<T>(T element, AxLinkedList<T>* next = NULL);
 	~AxLinkedList();
 
-	void Add(T element);
-	void Remove();
 	T Get();
-	AxLinkedList<T>* Next();
+	void SetNext(AxLinkedList<T>* next);
+	AxLinkedList<T>* GetNext();
 
 private:
 	T data;
