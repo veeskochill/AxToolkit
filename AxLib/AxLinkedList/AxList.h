@@ -1,5 +1,6 @@
 #include <stdlib.h>   
 
+template<class T>
 class AxLinkedList;
 //interface for a List
 /*
@@ -22,7 +23,6 @@ public:
 	void Remove(int index);
 
 private:
-	TAxLinkedList<T>* data;
+	AxLinkedList<T>* data;
 	int size;
-	
 };

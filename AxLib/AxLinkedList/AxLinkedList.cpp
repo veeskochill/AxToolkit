@@ -64,7 +64,7 @@ void AxLinkedList<T>::Remove()
 		//copy the member
 		data = forward->Get();
 		//store it's 'next' pointer
-		AxLinkedList<T>* temp = forward->Next();
+		AxLinkedList<T>* temp = forward->GetNext();
 		//clear the memory
 		delete forward;
 		//point to the next

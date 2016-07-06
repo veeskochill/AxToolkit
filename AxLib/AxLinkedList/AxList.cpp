@@ -1,44 +1,46 @@
 #include "AxList.h"
+#include "AxLinkedList.h"
 #include <stdlib.h>   
 
-
-AxList::AxList(): data(NULL), size(0)
+template<class T>
+AxList<T>::AxList(): data(NULL), size(0)
 {
 
 }
 
-AxList::~AxList()
+template<class T>
+AxList<T>::~AxList()
 {
-	TAxLinkedList<T>* temp = data;
-	TAxLinkedList<T>* temp_next = temp;
+	AxLinkedList<T>* temp = data;
+	AxLinkedList<T>* temp_next = temp;
 	int index = 0;
 	while(temp)
 	{
-		temp_next = temp->Next();
+		temp_next = temp->GetNext();
 		delete temp;
 		temp = temp_next;
 	}
 }
 
 template<class T>
-void AxList::Add(T element)
+void AxList<T>::Add(T element)
 {
 	AxLinkedList<T>* front = new AxLinkedList<T>(element, data);
 	data = front;
 }
 
 template<class T>
-int AxList::Find(T element)
+int AxList<T>::Find(T element)
 {
-	TAxLinkedList<T>* temp = data;
+	AxLinkedList<T>* temp = data;
 	int index = 0;
 	while(temp)
 	{
-		if(temp.Get() != element)
+		if(temp->Get() != element)
 		{
 			return index;
 		}
-		temp = temp->Next();
+		temp = temp->GetNext();
 		index++;
 	}
 	return -1;
@@ -49,18 +51,18 @@ Keep incrementing until we have reached correct index, or end of list.
 if index > 0, but at end of list, return null. 
 */
 template<class T>
-T AxList::Get(int index)
+T AxList<T>::Get(int index)
 {
-	TAxLinkedList<T>* temp = data;
-	while(temp->Next() && index >0)
+	AxLinkedList<T>* temp = data;
+	while(temp->GetNext() && index >0)
 	{
-		temp = temp->Next();
+		temp = temp->GetNext();
 		index--;
 	}
 
 	if(index == 0)
 	{
-		return temp;
+		return temp->Get();
 	}
 	else
 	{
@@ -75,25 +77,26 @@ if(forward)
 		//copy the member
 		data = forward->Get();
 		//store it's 'next' pointer
-		AxLinkedList<T>* temp = forward->Next();
+		AxLinkedList<T>* temp = forward->GetNext();
 		//clear the memory
 		delete forward;
 		//point to the next
 		forward = temp;
 	}
 */
-
-void AxList::Remove(int index)
+template<class T>
+void AxList<T>::Remove(int index)
 {
-	TAxLinkedList<T>* temp = data;
-	while(temp->Next() && index > 1)
+	AxLinkedList<T>* temp = data;
+	while(temp->GetNext() && index > 1)
 	{
-		temp = temp->Next();
+		temp = temp->GetNext();
 		index--;
 	}
+
 	if(index == 0)
 	{
-		return temp;
+	//	next_data = temp->GetNext();
 	}
 	else
 	{
@@ -102,8 +105,22 @@ void AxList::Remove(int index)
 
 }
 
-
-//	TAxLinkedList<T>* data;
+/*
+{
+	if(forward)
+	{
+		//copy the member
+		data = forward->Get();
+		//store it's 'next' pointer
+		AxLinkedList<T>* temp = forward->GetNext();
+		//clear the memory
+		delete forward;
+		//point to the next
+		forward = temp;
+	}
+}
+*/
+//	AxLinkedList<T>* data;
 //	int size;
 
 
