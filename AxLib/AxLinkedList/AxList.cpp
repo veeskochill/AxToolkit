@@ -36,7 +36,7 @@ int AxList<T>::Find(T element)
 	int index = 0;
 	while(temp)
 	{
-		if(temp->Get() != element)
+		if(temp->Get() == element)
 		{
 			return index;
 		}
@@ -97,6 +97,7 @@ void AxList<T>::Remove(int index)
 	if(index == 0)
 	{
 	//	next_data = temp->GetNext();
+		size--;
 	}
 	else
 	{
