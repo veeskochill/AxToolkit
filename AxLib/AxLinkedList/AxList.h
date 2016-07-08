@@ -22,6 +22,8 @@ public:
 	T Get(int index);
 	void Remove(int index);
 
+	int GetSize();
+
 private:
 	AxLinkedList<T>* data;
 	int size;

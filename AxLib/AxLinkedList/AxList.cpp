@@ -27,6 +27,7 @@ void AxList<T>::Add(T element)
 {
 	AxLinkedList<T>* front = new AxLinkedList<T>(element, data);
 	data = front;
+	size++;
 }
 
 template<class T>
@@ -70,33 +71,37 @@ T AxList<T>::Get(int index)
 	}
 }
 
-/*
-
-if(forward)
-	{
-		//copy the member
-		data = forward->Get();
-		//store it's 'next' pointer
-		AxLinkedList<T>* temp = forward->GetNext();
-		//clear the memory
-		delete forward;
-		//point to the next
-		forward = temp;
-	}
-*/
 template<class T>
 void AxList<T>::Remove(int index)
 {
 	AxLinkedList<T>* temp = data;
-	while(temp->GetNext() && index > 1)
+	AxLinkedList<T>* previous = NULL;
+	while(temp && index > 0)
 	{
+		previous = temp;
 		temp = temp->GetNext();
 		index--;
 	}
 
 	if(index == 0)
 	{
-	//	next_data = temp->GetNext();
+		if(previous)
+		{
+			if(temp->GetNext())
+			{
+				previous->SetNext(temp->GetNext());
+			}
+			else
+			{	
+				previous->SetNext(NULL);
+			}
+		}
+		else
+		{
+			data = temp->GetNext();
+		}
+
+		delete temp;
 		size--;
 	}
 	else
@@ -105,24 +110,10 @@ void AxList<T>::Remove(int index)
 	}
 
 }
-
-/*
+template<class T>
+int AxList<T>::GetSize()
 {
-	if(forward)
-	{
-		//copy the member
-		data = forward->Get();
-		//store it's 'next' pointer
-		AxLinkedList<T>* temp = forward->GetNext();
-		//clear the memory
-		delete forward;
-		//point to the next
-		forward = temp;
-	}
+	return size;
 }
-*/
-//	AxLinkedList<T>* data;
-//	int size;
-
 
 template class AxList<int>;
